@@ -1,6 +1,6 @@
 :root {
-  --background-color: darkblue;
-  --font-color: white;
+  --background-color: #d1e88e;
+  --font-color: black;
   --text-align: center;
 }
 
@@ -37,12 +37,29 @@ input:focus {
 }
 
 .header {
-  background: url("cool-background.png") repeat;
-  margin: 5px 2px 4px 2px;
-  border-color: coral;
+  background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe9Zgs75PUitIVLT1okmcRm0nxR2t_Squ7ag&usqp=CAU") repeat;
+  margin: 1px 1px 50px 1px;
+  border-color: #8b7ce6;
   border-style: solid;
   border-spacing: 2px;
   border-width: medium;
+  height: 10em;
+
+}
+h1 {
+  background-color: #483D8B;
+  color: white;
+  font-size: 48px;
+}
+h2 {
+  background-color: black;
+  color: white;
+  font-size: 24px;
+}
+p {
+  background-color: #483D8B;
+  color: white;
+  font-size: 24px;
 }
 
 .photo {
@@ -73,12 +90,12 @@ caption {
 #info {
   text-align:justify;
   text-indent: 20px;
-  background-color: #483D8B;
+  background-color: #8d81d4;
   margin-top: 5px;
   margin-left: 2px;
   margin-right: 2px;
   margin-bottom: 4px;
-  border: purple 2px solid;
+  border: #8d81d4 2px solid;
 }
 
 #headlist {
