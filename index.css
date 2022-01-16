@@ -1,0 +1,120 @@
+:root {
+  --background-color: darkblue;
+  --font-color: white;
+  --text-align: center;
+}
+
+html {
+  background-color: var(--background-color);
+  color: var(--font-color);
+  text-align: var(--text-align);
+  vertical-align: baseline;
+  font-variant: normal;
+  font-family: "Times New Roman", Times, serif;
+  list-style-position: outside;
+  page-break-before: always;
+  page-break-after: always;
+}
+
+a:link {
+  color: var(--font-color);
+}
+
+a:hover {
+  color: black;
+}
+
+a:active {
+  color: yellow;
+}
+
+a:visited {
+  color: red;
+}
+
+input:focus {
+  background-color: yellow;
+}
+
+.header {
+  background: url("cool-background.png") repeat;
+  margin: 5px 2px 4px 2px;
+  border-color: coral;
+  border-style: solid;
+  border-spacing: 2px;
+  border-width: medium;
+}
+
+.photo {
+  float: right;
+}
+
+.list {
+  text-indent: -15%;
+}
+
+#phones {
+  width: 100%;
+  text-align: left;
+  caption-side: top;
+}
+
+#image {
+  text-align: var(--text-align);
+  float: none;
+  max-width:100%;
+}
+
+caption {
+  font: 200% bold italic;
+  text-transform: capitalize;
+}
+
+#info {
+  text-align:justify;
+  text-indent: 20px;
+  background-color: #483D8B;
+  margin-top: 5px;
+  margin-left: 2px;
+  margin-right: 2px;
+  margin-bottom: 4px;
+  border: purple 2px solid;
+}
+
+#headlist {
+  text-decoration: underline;
+  text-indent: 10px;
+}
+
+ul:before {
+  content: '';
+  display: inline-block;
+  height: 2em;
+  width: 2em;
+  background-image: url("arrow.gif");
+  background-size: contain;
+  background-repeat: no-repeat;
+  vertical-align: top;
+  list-style-type: circle;
+  list-style-image: url("arrow.gif");
+}
+
+ol:before {
+  content: '';
+  display: inline-block;
+  height: 2em;
+  width: 2em;
+  background: url("arrow.gif");
+  background-size: contain;
+  background-repeat: no-repeat;
+  vertical-align: top;
+  list-style: url("arrow.gif") circle;
+}
+
+p {
+  animation-duration: 4s;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+  orphans: 3;
+  widows: 3;
+}
