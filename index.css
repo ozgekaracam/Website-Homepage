@@ -4,7 +4,7 @@
   --text-align: center;
 }
 
-html {
+body {
   background-color: var(--background-color);
   color: var(--font-color);
   text-align: var(--text-align);
@@ -14,6 +14,37 @@ html {
   list-style-position: outside;
   page-break-before: always;
   page-break-after: always;
+}
+
+h1 {
+  background-color: #483D8B;
+  color: white;
+  font-size: 48px;
+  font-weight:bold;
+}
+
+h2 {
+  background-color: black;
+  color: white;
+  font-size: 24px;
+  font-style: normal;
+}
+
+p {
+  background-color: #483D8B;
+  color: white;
+  font-size: 24px;
+  orphans: 3;
+  widows: 3;
+}
+
+caption {
+  font: 200% bold italic;
+  text-transform: capitalize;
+}
+
+a {
+  max-width: 100%;
 }
 
 a:link {
@@ -36,6 +67,11 @@ input:focus {
   background-color: yellow;
 }
 
+td {
+  max-width:100%;
+}
+
+
 .header {
   background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe9Zgs75PUitIVLT1okmcRm0nxR2t_Squ7ag&usqp=CAU") repeat;
   margin: 1px 1px 50px 1px;
@@ -44,22 +80,6 @@ input:focus {
   border-spacing: 2px;
   border-width: medium;
   height: 10em;
-
-}
-h1 {
-  background-color: #483D8B;
-  color: white;
-  font-size: 48px;
-}
-h2 {
-  background-color: black;
-  color: white;
-  font-size: 24px;
-}
-p {
-  background-color: #483D8B;
-  color: white;
-  font-size: 24px;
 }
 
 .photo {
@@ -74,17 +94,13 @@ p {
   width: 100%;
   text-align: left;
   caption-side: top;
+  margin: 1px 1px 50px 1px;
 }
 
 #image {
   text-align: var(--text-align);
   float: none;
   max-width:100%;
-}
-
-caption {
-  font: 200% bold italic;
-  text-transform: capitalize;
 }
 
 #info {
@@ -96,11 +112,11 @@ caption {
   margin-right: 2px;
   margin-bottom: 4px;
   border: #8d81d4 2px solid;
+  max-width: 100%;
 }
 
 #headlist {
   text-decoration: underline;
-  text-indent: 10px;
 }
 
 ul:before {
@@ -108,12 +124,13 @@ ul:before {
   display: inline-block;
   height: 2em;
   width: 2em;
-  background-image: url("arrow.gif");
+  background-image: url("https://i.redd.it/3erdiduv86i61.gif");
   background-size: contain;
   background-repeat: no-repeat;
   vertical-align: top;
   list-style-type: circle;
-  list-style-image: url("arrow.gif");
+  list-style-image: url("https://i.redd.it/3erdiduv86i61.gif");
+  text-align: left;
 }
 
 ol:before {
@@ -121,17 +138,20 @@ ol:before {
   display: inline-block;
   height: 2em;
   width: 2em;
-  background: url("arrow.gif");
+  background: url("https://i.redd.it/3erdiduv86i61.gif") no-repeat;
   background-size: contain;
-  background-repeat: no-repeat;
   vertical-align: top;
-  list-style: url("arrow.gif") circle;
+  list-style: url("https://i.redd.it/3erdiduv86i61.gif") circle;
+  text-align: left;
 }
 
-p {
-  animation-duration: 4s;
-  animation-direction: alternate;
-  animation-fill-mode: forwards;
-  orphans: 3;
-  widows: 3;
+@media only screen and (max-width: 600px) {
+  #image{
+    float:left;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  #info{
+    }
 }
