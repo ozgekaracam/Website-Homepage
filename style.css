@@ -70,6 +70,10 @@ input:focus {
 td {
   max-width:100%;
 }
+figcaption {
+  text-align: center;
+  font-size: 10px
+}
 
 
 .header {
@@ -147,6 +151,7 @@ ol:before {
 
 @media only screen and (max-width: 600px) {
   #image{
+    float:left;
   }
 }
 
