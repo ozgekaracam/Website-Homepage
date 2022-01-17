@@ -147,7 +147,6 @@ ol:before {
 
 @media only screen and (max-width: 600px) {
   #image{
-    float:left;
   }
 }
 
