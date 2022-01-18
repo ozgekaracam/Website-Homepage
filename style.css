@@ -14,6 +14,8 @@ body {
   list-style-position: outside;
   page-break-before: always;
   page-break-after: always;
+  width: 100vw;
+  height: 100vw;
 }
 
 h1 {
@@ -43,6 +45,11 @@ caption {
   text-transform: capitalize;
 }
 
+figcaption {
+  text-align: center;
+  font-size: 10px
+}
+
 a {
   max-width: 100%;
 }
@@ -70,11 +77,6 @@ input:focus {
 td {
   max-width:100%;
 }
-figcaption {
-  text-align: center;
-  font-size: 10px
-}
-
 
 .header {
   background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe9Zgs75PUitIVLT1okmcRm0nxR2t_Squ7ag&usqp=CAU") repeat;
@@ -101,7 +103,7 @@ figcaption {
   margin: 1px 1px 50px 1px;
 }
 
-#image {
+.image {
   text-align: var(--text-align);
   float: none;
   max-width:100%;
@@ -119,7 +121,7 @@ figcaption {
   max-width: 100%;
 }
 
-#headlist {
+.headlist {
   text-decoration: underline;
 }
 
@@ -149,13 +151,17 @@ ol:before {
   text-align: left;
 }
 
-@media only screen and (max-width: 600px) {
-  #image{
-    float:left;
+@media print {
+  body{
+    widows: 3;
+    orphans: 3;
+    width: 210mm;
+    height: 297mm;
   }
 }
 
+@media only screen and (max-width: 600px) {
+  }
+
 @media only screen and (min-width: 600px) {
-  #info{
-    }
 }
