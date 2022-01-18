@@ -121,6 +121,13 @@ td {
   max-width: 100%;
 }
 
+#form {
+  width: 100%;
+  text-align: left;
+  caption-side: top;
+  margin: 1px 1px 50px 1px;
+}
+
 .headlist {
   text-decoration: underline;
 }
