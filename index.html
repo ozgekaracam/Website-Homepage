@@ -5,7 +5,12 @@
   <meta charset="UTF-8">
   <meta name="keywords" content="HTML,CSS,JavaScript">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="tested the website on both Safari and Google Chrome.
+  Tested it using inspect and then tried it out for different screen sizes.
+  Print style and different screen sizes did not always work out the way we wanted to.
+  Desktop works fine for both.">
   <link href="style.css" rel="stylesheet">
+  <script src="test.js"></script>
   <title>Assignment 1 - Lab 120</title>
 </head>
 <body>
@@ -15,12 +20,12 @@
   <p>We have the best phone for <em>YOU</em>!</p>
   </section>
   <section id="phones">
-      <table>
+      <table id="myTable">
         <caption>
           <dl><strong>our best offers for <em>you</em></strong></dl>
         </caption>
         <tr>
-          <th id="image">Image</th>
+          <th class="image">Image</th>
           <th>Brand</th>
           <th>Model</th>
           <th><abbr title="Operating System">OS</abbr></th>
@@ -28,7 +33,7 @@
         </tr>
         <tr>
           <td><figure>
-            <img id="image" src="https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_87456062/fee_325_225_png/SAMSUNG-Galaxy-A03s---32-GB-Zwart">
+            <img class="image" src="https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_87456062/fee_325_225_png/SAMSUNG-Galaxy-A03s---32-GB-Zwart">
             <figcaption>More photo</figcaption>
           </figure></td>
           <td>
@@ -42,7 +47,7 @@
         </tr>
         <tr>
           <td><figure>
-            <img id="image" src="https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_87248120/fee_325_225_png/APPLE-iPhone-13---128-GB-Middernacht-5G">
+            <img class="image" src="https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_87248120/fee_325_225_png/APPLE-iPhone-13---128-GB-Middernacht-5G">
             <figcaption>More photo</figcaption>
           </figure></td>
           <td>
@@ -56,7 +61,7 @@
         </tr>
         <tr>
           <td><figure>
-            <img id="image" src="https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_78101763/fee_325_225_png/OPPO-A53---64-GB-Zwart">
+            <img class="image" src="https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_78101763/fee_325_225_png/OPPO-A53---64-GB-Zwart">
             <figcaption>More photo</figcaption>
           </figure></td>
           <td>
@@ -70,7 +75,7 @@
         </tr>
         <tr>
           <td><figure>
-            <img id="image" src="https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_89435362/fee_325_225_png/MOTOROLA-moto-e7-power---64-GB-Dual-Sim-Blauw">
+            <img class="image" src="https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_89435362/fee_325_225_png/MOTOROLA-moto-e7-power---64-GB-Dual-Sim-Blauw">
             <figcaption>More photo</figcaption>
           </figure></td>
           <td>
@@ -124,10 +129,10 @@
   <section id="info">
     <table>
       <tr>
-        <td id="headlist"><strong>Shop phones by brand</strong></td>
-        <td id="headlist"><strong>Order info</strong></td>
-        <td id="headlist"><strong>About Us</strong></td>
-        <td id="headlist"><strong>Reach Us</strong></td>
+        <td class="headlist"><strong>Shop phones by brand</strong></td>
+        <td class="headlist"><strong>Order info</strong></td>
+        <td class="headlist"><strong>About Us</strong></td>
+        <td class="headlist"><strong>Reach Us</strong></td>
       </tr>
       <tr>
         <td>
@@ -163,9 +168,9 @@
         </td>
       </tr>
       <tr>
-        <td id="headlist"><strong>New featured phones</strong></td>
-        <td id="headlist"><strong>Support</strong></td>
-        <td id="headlist"><strong>Corporate responsibility</strong></td>
+        <td class="headlist"><strong>New featured phones</strong></td>
+        <td class="headlist"><strong>Support</strong></td>
+        <td class="headlist"><strong>Corporate responsibility</strong></td>
       </tr>
       <tr>
           <td>
