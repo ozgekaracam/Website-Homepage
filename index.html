@@ -1,6 +1,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="keywords" content="HTML,CSS,JavaScript">
@@ -10,7 +11,7 @@
   Print style and different screen sizes did not always work out the way we wanted to.
   Desktop works fine for both.">
   <link href="style.css" rel="stylesheet">
-  <script src="test.js"></script>
+  <script src="file.js"></script>
   <title>Assignment 1 - Lab 120</title>
 </head>
 <body>
@@ -19,14 +20,17 @@
   <h2>Phone Store</h2>
   <p>We have the best phone for <em>YOU</em>!</p>
   </section>
-  <section id="phones">
-      <table id="myTable">
+  <section>
+      <table id="phones">
         <caption>
           <dl><strong>our best offers for <em>you</em></strong></dl>
         </caption>
         <tr>
           <th class="image">Image</th>
-          <th>Brand</th>
+          <th>
+            Brand
+            <p><button onclick="sortTable()">Sort</button></p>
+          </th>
           <th>Model</th>
           <th><abbr title="Operating System">OS</abbr></th>
           <th>Screen size</th>
@@ -87,6 +91,10 @@
           <td>Android 10.0</td>
           <td>16.51 cm / 6.5 inch</td>
         </tr>
+      </table>
+    </section>
+    <section>
+      <table>
         <tr>
           <form action="https://wt.ops.labs.vu.nl/api22/ccc90d56" method="POST" enctype="multipart/form-data">
             <td>
@@ -125,54 +133,54 @@
           </form>
         </tr>
       </table>
-  </section>
-  <section id="info">
-    <table>
-      <tr>
-        <td class="headlist"><strong>Shop phones by brand</strong></td>
-        <td class="headlist"><strong>Order info</strong></td>
-        <td class="headlist"><strong>About Us</strong></td>
-        <td class="headlist"><strong>Reach Us</strong></td>
-      </tr>
-      <tr>
-        <td>
-          <dl class="list">
-            <ol>Apple</ol>
-            <ol>Samsung</ol>
-            <ol>Oppo</ol>
-          </dl>
-        </td>
-        <td>
-          <dl class="list">
-            <ul>Check order status</ul>
-            <ul>View return policy</ul>
-            <ul>Redeem a rebate</ul>
-          </dl>
-        </td>
-        <td>
-          <dl class="list">
-            <ul>Our story</ul>
-            <ul>Newsroom</ul>
-            <ul>Investor relations</ul>
-          </dl>
-        </td>
-        <td>
-          <dl class="list">
-            <ul>Address
-              <ul>Vinkenstraat 119, 1013 JN Amsterdam, Netherlands</ul>
-            </ul>
-            <ul>Phone
-              <ul>+3134569202</ul>
-            </ul>
-          </dl>
-        </td>
-      </tr>
-      <tr>
-        <td class="headlist"><strong>New featured phones</strong></td>
-        <td class="headlist"><strong>Support</strong></td>
-        <td class="headlist"><strong>Corporate responsibility</strong></td>
-      </tr>
-      <tr>
+    </section>
+    <section id="info">
+      <table>
+        <tr>
+          <td class="headlist"><strong>Shop phones by brand</strong></td>
+          <td class="headlist"><strong>Order info</strong></td>
+          <td class="headlist"><strong>About Us</strong></td>
+          <td class="headlist"><strong>Reach Us</strong></td>
+        </tr>
+        <tr>
+          <td>
+            <dl class="list">
+              <ol>Apple</ol>
+              <ol>Samsung</ol>
+              <ol>Oppo</ol>
+            </dl>
+          </td>
+          <td>
+            <dl class="list">
+              <ul>Check order status</ul>
+              <ul>View return policy</ul>
+              <ul>Redeem a rebate</ul>
+            </dl>
+          </td>
+          <td>
+            <dl class="list">
+              <ul>Our story</ul>
+              <ul>Newsroom</ul>
+              <ul>Investor relations</ul>
+            </dl>
+          </td>
+          <td>
+            <dl class="list">
+              <ul>Address
+                <ul>Vinkenstraat 119, 1013 JN Amsterdam, Netherlands</ul>
+              </ul>
+              <ul>Phone
+                <ul>+3134569202</ul>
+              </ul>
+            </dl>
+          </td>
+        </tr>
+        <tr>
+          <td class="headlist"><strong>New featured phones</strong></td>
+          <td class="headlist"><strong>Support</strong></td>
+          <td class="headlist"><strong>Corporate responsibility</strong></td>
+        </tr>
+        <tr>
           <td>
             <dl class="list">
               <ul>New Apple iPhone 13 5G</ul>
@@ -194,8 +202,8 @@
               <ul>Privacy center</ul>
             </dl>
           </td>
-      </tr>
-    </table>
-  </section>
+        </tr>
+      </table>
+    </section>
 </body>
 </html>
