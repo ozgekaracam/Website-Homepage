@@ -55,6 +55,46 @@ function resetTable(){
   };
   request.send();
 }
+
+var request;
+
+$("#form").submit(function(event){
+
+    event.preventDefault();
+
+    if (request) {
+        request.abort();
+    }
+    var $form = $(this);
+
+    var $inputs = $form.find("image, brand, model, os, screensize");
+
+    var serializedData = $form.serialize();
+
+    $inputs.prop("disabled", true);
+
+    request = $.ajax({
+        url: "/https://wt.ops.labs.vu.nl/api22/ccc90d56",
+        type: "post",
+        data: serializedData
+    });
+
+    request.done(function (response, textStatus, jqXHR){
+        loadPhoneTable();
+    });
+
+    request.fail(function (jqXHR, textStatus, errorThrown){
+        console.error(
+            "The following error occurred: "+
+            textStatus, errorThrown
+        );
+    });
+
+    request.always(function () {
+        $inputs.prop("disabled", false);
+    });
+});
+
 //sorting function source: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_sort_table
 function sortTable(n) {
   var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
