@@ -37,6 +37,24 @@ function populatePhoneTable(json){
   console.log('----------appendError---------');
   console.log(phonesTableBody);
 }
+function resetTable(){
+  const request = new XMLHttpRequest();
+  request.open("GET","https://wt.ops.labs.vu.nl/api22/ccc90d56/reset");
+  request.onload = () => {
+    try{
+      while(phonesTableBody.firstChild){
+        console.log("before removeChild")
+        phonesTableBody.removeChild(phonesTableBody.firstChild);
+        console.log("after removeChild")
+      }
+      console.log(request.responseText);
+    }
+     catch(e){
+       console.warn("Couldn't delete phones! :(");
+     }
+  };
+  request.send();
+}
 //sorting function source: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_sort_table
 function sortTable(n) {
   var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
