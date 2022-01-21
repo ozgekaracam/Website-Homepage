@@ -49,7 +49,7 @@
     </section>
     <section>
       <table>
-          <form action="https://wt.ops.labs.vu.nl/api22/ccc90d56" method="POST" enctype="multipart/form-data">
+          <form id="form">
           <tr>
             <td>
               <input type="url" name="image" id="image" required>
@@ -69,12 +69,13 @@
             </td>
           </tr>
           </form>
+          <div id="result"></div>
       </table>
-    <section>
-      <form action="https://wt.ops.labs.vu.nl/api22/ccc90d56/reset" method="GET" target="_blank">
-      <button type="reset" formmethod="get">Reset</button>
-      </form>
-    </section>
+      <section>
+        <form action="https://wt.ops.labs.vu.nl/api22/ccc90d56/reset" method="GET" target="_blank">
+        <button type="reset" name="reset" >Reset</button>
+        </form>
+      </section>
 
 </body>
 </html>
