@@ -1,87 +1,31 @@
-const tableBody = document.querySelector("#phonesTableBody");
-document.addEventListener("DOMContentLoaded", () => { loadPhoneTable(); });
-document.addEventListener("addNewRow", () => { loadPhoneTable(); });
-
-function loadPhoneTable(){
-  const request = new XMLHttpRequest();
-  request.open("GET","https://wt.ops.labs.vu.nl/api22/ccc90d56");
-  request.onload = () => {
-    try{
-      const json = JSON.parse(request.responseText);
-      populatePhoneTable(json);
-    }
-     catch(e){
-       console.warn("Couldn't load phones! :(");
-     }
-  };
-  request.send();
-}
-function populatePhoneTable(json){
-  console.log(json);
-  json.forEach(obj => {
-    const tr = document.createElement("tr");
-    Object.entries(obj).forEach(([key, value]) => {
-      if(`${key}` != "id")
-      {
-        const td = document.createElement("td");
-        console.log(td);
-        td.textContent = `${value}`;
-        tr.appendChild(td);
-        console.log(tr);
-        console.log(`${key} ${value}`);
-      }
-    });
-  });
-  console.log('-------------------');
-  tableBody.appendChild(tr);
-  console.log('----------appendError---------');
-  console.log(phonesTableBody);
-}
-function resetTable(){
-  const request = new XMLHttpRequest();
-  request.open("GET","https://wt.ops.labs.vu.nl/api22/ccc90d56/reset");
-  request.onload = () => {
-    try{
-      while(phonesTableBody.firstChild){
-        console.log("before removeChild")
-        phonesTableBody.removeChild(phonesTableBody.firstChild);
-        console.log("after removeChild")
-      }
-      console.log(request.responseText);
-    }
-     catch(e){
-       console.warn("Couldn't delete phones! :(");
-     }
-  };
-  request.send();
-}
-
 var request;
-
-$("#form").submit(function(event){
-
+$(document).ready(function(event){
+  $("#form").submit(function(event){
     event.preventDefault();
-
     if (request) {
         request.abort();
     }
     var $form = $(this);
-
     var $inputs = $form.find("image, brand, model, os, screensize");
-
     var serializedData = $form.serialize();
-
     $inputs.prop("disabled", true);
 
     request = $.ajax({
-        url: "/https://wt.ops.labs.vu.nl/api22/ccc90d56",
-        type: "post",
+        url: "https://wt.ops.labs.vu.nl/api22/ccc90d56",
+        type: "POST",
         data: serializedData
     });
 
     request.done(function (response, textStatus, jqXHR){
+      try{
         loadPhoneTable();
-    });
+        //clean form inputs on the screen
+        document.getElementById("form").reset();
+
+      }
+      catch(e){
+       console.warn("Couldn't load the phone! :(");
+      }
 
     request.fail(function (jqXHR, textStatus, errorThrown){
         console.error(
@@ -93,12 +37,75 @@ $("#form").submit(function(event){
     request.always(function () {
         $inputs.prop("disabled", false);
     });
+  });
 });
-
-//sorting function source: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_sort_table
-function sortTable(n) {
+});
+//Dynamic table
+//Table body is called for body's id itself as variable, as explained by TA
+var tableBody = document.querySelector("#phonesTableBody");
+document.addEventListener("DOMContentLoaded", () => { loadPhoneTable(); });
+//document.addEventListener("addNewRow", () => { loadPhoneTable(); });
+function loadPhoneTable(){
+     request = $.ajax({
+         url: "https://wt.ops.labs.vu.nl/api22/ccc90d56",
+         type: "GET",
+     });
+     request.done(function (response, textStatus, jqXHR){
+       try{
+         const json = JSON.parse(request.responseText);
+         populatePhoneTable(json);
+       }
+       catch(e){
+        console.warn("Couldn't load phones! :(");
+       }
+     });
+}
+function populatePhoneTable(json){
+  console.log(json);
+  json.forEach(obj => {
+    const tr = document.createElement("tr");
+    Object.entries(obj).forEach(([key, value]) => {
+      if(`${key}` != "id")
+      {
+        const td = document.createElement("td");
+        //console.log(`${key} ${value}`);
+        td.textContent = `${value}`;
+        //Here for tr and td, appendTo was used and yet it did not even work as much as appendChild.
+        //So appendChild is left here as used so it is visible on console.
+        // it is obvious that tr and td elements of table are created correctly and yet not possible to insert them into tableBody
+        tr.appendChild(td);
+        console.log(tr);
+      }
+    });
+  });
+  console.log('-------------------');
+  //Here what it gives error and not continue on the function.
+  tableBody.appendChild(tr);
+  console.log('----------appendError---------');
+  console.log(phonesTableBody);
+}
+//Reset function
+$(document).ready(function(){
+  $("#reset").click(function(){
+    $.get("https://wt.ops.labs.vu.nl/api22/ccc90d56/reset", function(data, status){
+      try{
+        while(phonesTableBody.firstChild){
+          phonesTableBody.removeChild(phonesTableBody.firstChild);
+        }
+      }
+     catch(e){
+       console.warn("Couldn't delete phones! :(");
+     }
+    });
+  });
+});
+//Sorting function source: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_sort_table
+//Sort table function is also ale to for for dynamic table(id="phones")
+  // However since  we could not make the apppenTo or appenChild work, it is not visible on frontend.
+  // Again, the function is built to sort  both dynamic and static table as seen.
+function sortTable(n, id) {
   var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-  table = document.getElementById("phones");
+  table = document.getElementById(id);
   switching = true;
   dir = "asc";
   while (switching) {
