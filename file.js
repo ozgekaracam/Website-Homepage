@@ -1,4 +1,5 @@
 //Add new item on the table dynamically without leaving the page
+//source: https://stackoverflow.com/questions/5004233/jquery-ajax-post-example-with-php
 var request;
 $(document).ready(function(event){
   $("#form").submit(function(event){
@@ -27,13 +28,6 @@ $(document).ready(function(event){
       catch(e){
        console.warn("Couldn't load the phone! :(");
       }
-
-    request.fail(function (jqXHR, textStatus, errorThrown){
-        console.error(
-            "The following error occurred: "+
-            textStatus, errorThrown
-        );
-    });
 
     request.always(function () {
         $inputs.prop("disabled", false);
