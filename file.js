@@ -1,3 +1,4 @@
+//Add new item on the table dynamically without leaving the page
 var request;
 $(document).ready(function(event){
   $("#form").submit(function(event){
@@ -40,7 +41,7 @@ $(document).ready(function(event){
   });
 });
 });
-//Dynamic table
+//Dynamic table view
 //Table body is called for body's id itself as variable, as explained by TA
 var tableBody = document.querySelector("#phonesTableBody");
 document.addEventListener("DOMContentLoaded", () => { loadPhoneTable(); });
@@ -84,7 +85,7 @@ function populatePhoneTable(json){
   console.log('----------appendError---------');
   console.log(phonesTableBody);
 }
-//Reset function
+//Reset the table database
 $(document).ready(function(){
   $("#reset").click(function(){
     $.get("https://wt.ops.labs.vu.nl/api22/ccc90d56/reset", function(data, status){
@@ -99,6 +100,7 @@ $(document).ready(function(){
     });
   });
 });
+//Sorting the tables
 //Sorting function source: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_sort_table
 //Sort table function is also ale to for for dynamic table(id="phones")
   // However since  we could not make the apppenTo or appenChild work, it is not visible on frontend.
