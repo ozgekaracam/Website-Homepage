@@ -135,7 +135,6 @@ app.delete('/delete', function(req, res) {
   }
   else {
     db.run("DELETE FROM phones WHERE id= " + [item.id], function(err, rows) {
-      console.log(err);
       if (err) {
          res.status(400).send(err);
       }
