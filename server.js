@@ -43,29 +43,10 @@ app.use(bodyParser.json());
 
 // ###############################################################################
 // Routes
-//
-// TODO: Add your routes here and remove the example routes once you know how
-//       everything works.
 // ###############################################################################
 
-// This example route responds to http://localhost:3000/hello with an example JSON object.
-// Please test if this works on your own device before you make any changes.
-
-app.get("/hello", function(req, res) {
-    response_body = {'Hello': 'World'} ;
-
-    // This example returns valid JSON in the response, but does not yet set the
-    // associated HTTP response header.  This you should do yourself in your
-    // own routes!
-    res.json(response_body) ;
-});
-
-// This route responds to http://localhost:3000/db-example by selecting some data from the
-// database and return it as JSON object.
-// Please test if this works on your own device before you make any changes.
-//GET request
+//GET request - http://localhost:3000/get
 app.get('/get', function(req, res) {
-    // Example SQL statement to select the name of all products from a specific brand
     console.log(req.body);
     var item = req.body;
     var queryCond = "";
@@ -81,38 +62,25 @@ app.get('/get', function(req, res) {
     if (item.os != null){
       queryCond += ` and os= "${[item.os]}"`;
     }
-    //console.log(res.json(req.body));
+    if (item.screensize != null){
+      queryCond += " and screensize=" + [item.screensize];
+    }
     var query = "SELECT * FROM phones WHERE 1=1" + queryCond;
     console.log(query);
+    console.log("nedenGET");
     db.all(query, function(err, rows) {
-      /* http request
       if (err) {
          res.status(400).send(err);
       }
       else {
          res.status(201).json(rows);
       }
-      */
-    	// TODO: add code that checks for errors so you know what went wrong if anything went wrong
-    	// TODO: set the appropriate HTTP response headers and HTTP response codes here.
-    	// # Return db response as JSON
-    	return res.json(rows);
-
     });
 });
-//PUT request
+//PUT request  - http://localhost:3000/put
 app.put('/put', function(req, res) {
   var item = req.body;
-  var query = `UPDATE phones SET brand= "${[item.brand]}", model= "${[item.model]}", os= "${[item.os]}", image= "${[item.image]}", screensize= ${[item.screensize]} WHERE id= ${[item.id]}`;
-  console.log(query);
-  db.run(query, function(err, rows) {
-                      return res.json(req.body);
-                    });
-});
-//POST request
-app.post('/post', function(req, res) {
-  var item = req.body;
-  var error;
+  var error = "";
   if (item.brand == null || item.model == null || item.os == null || item.image == null || item.screensize == null){
      error = "Ops! You are missing some fields!";
      return res.json(error);
@@ -122,22 +90,64 @@ app.post('/post', function(req, res) {
      return res.json(error);
   }
   else {
-    db.run(`INSERT INTO phones (brand, model, os, image, screensize)
-                  VALUES (?, ?, ?, ?, ?)`,
-                  [item.brand, item.model, item.os, item.image,  item.screensize], function(err, rows) {
-    	return res.json(req.body);
+    var query = `UPDATE phones SET brand= "${[item.brand]}", model= "${[item.model]}", os= "${[item.os]}", image= "${[item.image]}", screensize= ${[item.screensize]} WHERE id= ${[item.id]}`;
+    console.log(query);
+    db.run(query, function(err, rows) {
+      if (err) {
+         res.status(400).send(err);
+      }
+      else {
+         res.status(201).json(req.body);
+      }
+    });
+  }
+});
+//POST request - http://localhost:3000/post
+app.post('/post', function(req, res) {
+  var item = req.body;
+  var error = "";
+  if (item.brand == null || item.model == null || item.os == null || item.image == null || item.screensize == null){
+     error = "Ops! You are missing some fields!";
+     return res.json(error);
+  }
+  else if (item.brand == "" || item.model == "" || item.os == "" || item.image == "" || item.screensize == ""){
+     error = "Please fill in all mandatory fields.";
+     return res.json(error);
+  }
+  else {
+    //var currentItems = db.all(`SELECT * FROM phones WHERE brand=?, model=?, os=?, image=?, screensize=?`,[item.brand, item.model, item.os, item.image,  item.screensize]);
+    db.run(`INSERT INTO phones (brand, model, os, image, screensize) VALUES (?, ?, ?, ?, ?)`, [item.brand, item.model, item.os, item.image,  item.screensize], function(err, rows) {
+      if (err) {
+         res.status(400).send(err);
+      }
+      else {
+         res.status(201).json(req.body);
+      }
     });
   }
 });
 
-//DELETE request
+//DELETE request - http://localhost:3000/delete
 app.delete('/delete', function(req, res) {
-  var resTxt;
+  console.log("1");
   var item = req.body;
-  db.run("DELETE FROM phones WHERE id= " + [item.id], function(err, rows) {
-     return res.json("Item is deleted.");
- });
-
+  console.log(item);
+  console.log(item.id);
+  if (!(item.id)){
+     var error = "Ops! You are missing the id to delete!";
+     return res.json(error);
+  }
+  else {
+    db.run("DELETE FROM phones WHERE id= " + [item.id], function(err, rows) {
+      console.log(err);
+      if (err) {
+         res.status(400).send(err);
+      }
+      else {
+         res.status(201).json("Item is deleted succesfully.");
+      }
+   });
+  }
 });
 // ###############################################################################
 // This should start the server, after the routes have been defined, at port 3000:
