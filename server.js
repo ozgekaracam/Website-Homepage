@@ -102,7 +102,12 @@ app.get('/get', function(req, res) {
 });
 //PUT request
 app.put('/put', function(req, res) {
-
+  var item = req.body;
+  var query = `UPDATE phones SET brand= "${[item.brand]}", model= "${[item.model]}", os= "${[item.os]}", image= "${[item.image]}", screensize= ${[item.screensize]} WHERE id= ${[item.id]}`;
+  console.log(query);
+  db.run(query, function(err, rows) {
+                      return res.json(req.body);
+                    });
 });
 //POST request
 app.post('/post', function(req, res) {
