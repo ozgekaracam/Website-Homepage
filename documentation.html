@@ -1,0 +1,92 @@
+Hello,front-end developer!
+
+Here you will find the instructions for using this RESTful web API.
+
+Typically, RESTful web APIs use four of the HTTP request verbs to implement CRUD operations:
+
+POST - Create a new resource
+GET - Retrieve a resource
+PUT - Update a resource
+DELETE - Delete a resource
+
+In this document, we will shortly discuss how you can use any of those four operations.
+
+A POST request is used to create a new resource.
+The only input a POST request requires is the endpoint URI ('/post').
+
+Upon successful return, HTTP status 201 will be given,
+returning a Location header with a link to the newly-created resource.
+
+The MIME type looks as follows:
+
+POST api/post HTTP/1.1
+Host: localhost:3000
+Content-Type: application/json
+User-Agent: Mozilla/5.0 Chrome/48.0.2564
+Type: id = INTEGER PRIMARY KEY,
+      brand = CHAR(100) NOT NULL,
+      model = CHAR(100) NOT NULL,
+      os = CHAR(10) NOT NULL,
+      image = CHAR(254) NOT NULL,
+      screensize = INTEGER NOT NULL
+
+
+
+A GET request is used to retrieve a resource.
+
+In the “happy” (or non-error) path, GET returns a representation in XML or JSON and an HTTP response code of 200 (OK).
+In an error case, it returns either a 404 (NOT FOUND) or 400 (BAD REQUEST).
+
+The MIME type looks as follows:
+
+GET api/get HTTP/1.1
+Host: localhost:3000
+Content-Type: application/json
+User-Agent: Mozilla/5.0 Chrome/48.0.2564
+Type: id = INTEGER PRIMARY KEY,
+      brand = CHAR(100) NOT NULL,
+      model = CHAR(100) NOT NULL,
+      os = CHAR(10) NOT NULL,
+      image = CHAR(254) NOT NULL,
+      screensize = INTEGER NOT NULL
+
+
+
+A PUT request is used by Web APIs to update an existing resource.
+A 400 status will be returned if an error occurs.
+A 404 status will occur if the input is not found.
+A 204 status will be returned for a successful update.
+
+The only input a put request requires is the endpoint URI ('/put').
+
+The MIME type looks as follows:
+
+PUT api/put HTTP/1.1
+Host: localhost:3000
+Content-Type: application/json
+User-Agent: Mozilla/5.0 Chrome/48.0.2564
+Type: id = INTEGER PRIMARY KEY,
+      brand = CHAR(100) NOT NULL,
+      model = CHAR(100) NOT NULL,
+      os = CHAR(10) NOT NULL,
+      image = CHAR(254) NOT NULL,
+      screensize = INTEGER NOT NULL
+
+
+A DELETE request is used by Web APIs to delete an existing resource.
+A 400 status will be returned if an error occurs.
+A 404 status will occur if the input is not found.
+A 204 status will be returned for a successful delete.
+
+The MIME type looks as follows:
+
+DELETE api/delete HTTP/1.1
+Host: localhost:3000
+Content-Type: application/json
+User-Agent: Mozilla/5.0 Chrome/48.0.2564
+Type: id = INTEGER PRIMARY KEY,
+      brand = CHAR(100) NOT NULL,
+      model = CHAR(100) NOT NULL,
+      os = CHAR(10) NOT NULL,
+      image = CHAR(254) NOT NULL,
+      screensize = INTEGER NOT NULL
