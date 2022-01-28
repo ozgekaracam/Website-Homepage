@@ -67,7 +67,6 @@ app.get('/get', function(req, res) {
     }
     var query = "SELECT * FROM phones WHERE 1=1" + queryCond;
     console.log(query);
-    console.log("nedenGET");
     db.all(query, function(err, rows) {
       if (err) {
          res.status(400).send(err);
@@ -129,10 +128,7 @@ app.post('/post', function(req, res) {
 
 //DELETE request - http://localhost:3000/delete
 app.delete('/delete', function(req, res) {
-  console.log("1");
   var item = req.body;
-  console.log(item);
-  console.log(item.id);
   if (!(item.id)){
      var error = "Ops! You are missing the id to delete!";
      return res.json(error);
