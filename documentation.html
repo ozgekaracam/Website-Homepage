@@ -1,92 +1,102 @@
-Hello,front-end developer!
+<body>
 
-Here you will find the instructions for using this RESTful web API.
+<p> Hello, front-end developer!</p>
+
+<p> Here you will find the instructions for using this RESTful web API.</p>
 
 Typically, RESTful web APIs use four of the HTTP request verbs to implement CRUD operations:
 
-POST - Create a new resource
-GET - Retrieve a resource
-PUT - Update a resource
-DELETE - Delete a resource
+<ul>POST - Create a new resource</ul>
+<ul>GET - Retrieve a resource</ul>
+<ul>PUT - Update a resource</ul>
+<ul>DELETE - Delete a resource</ul>
 
-In this document, we will shortly discuss how you can use any of those four operations.
+<p>
+  <br>
+  In this document, we will shortly discuss how you can use any of those four operations.<br><br>
 
-A POST request is used to create a new resource.
-The only input a POST request requires is the endpoint URI ('/post').
+  A POST request is used to create a new resource.<br>
+  If not all the information is provided, either this error message<br>
+  ("Ops! You are missing some fields!"), or this error message
+  ("Please fill in all mandatory fields.") will be displayed.<br>
+  In an error case, a 400 status will be displayed.<br>
+  When successful, a 201 message will be provided.<br>
+  The information will then be uploaded in the table.<br><br>
 
-Upon successful return, HTTP status 201 will be given,
-returning a Location header with a link to the newly-created resource.
+  The MIME type looks as follows:
 
-The MIME type looks as follows:
-
-POST api/post HTTP/1.1
-Host: localhost:3000
-Content-Type: application/json
-User-Agent: Mozilla/5.0 Chrome/48.0.2564
-Type: id = INTEGER PRIMARY KEY,
+  <ul>POST http://localhost:3000/post HTTP/1.1</ul>
+  <ul>Host: localhost:3000</ul>
+  <ul>Content-Type: application/json</ul>
+  <ul>User-Agent: Mozilla/5.0 Chrome/48.0.2564</ul>
+  <ul>Type: id = INTEGER PRIMARY KEY,
       brand = CHAR(100) NOT NULL,
       model = CHAR(100) NOT NULL,
       os = CHAR(10) NOT NULL,
       image = CHAR(254) NOT NULL,
-      screensize = INTEGER NOT NULL
+      screensize = INTEGER NOT NULL</ul>
+</p>
 
+<p>
+  <br>
+  A GET request is used to retrieve a resource.<br>
+  In the “happy” (or non-error) path, GET returns a representation in JSON.<br>
+  The JSON will represent the product information (brand, model, os, image, screensize) in order.<br>
+  In an error case, a 400 status will occur.<br><br>
 
+  The MIME type looks as follows:
 
-A GET request is used to retrieve a resource.
-
-In the “happy” (or non-error) path, GET returns a representation in XML or JSON and an HTTP response code of 200 (OK).
-In an error case, it returns either a 404 (NOT FOUND) or 400 (BAD REQUEST).
-
-The MIME type looks as follows:
-
-GET api/get HTTP/1.1
-Host: localhost:3000
-Content-Type: application/json
-User-Agent: Mozilla/5.0 Chrome/48.0.2564
-Type: id = INTEGER PRIMARY KEY,
+  <ul>GET http://localhost:3000/get HTTP/1.1</ul>
+  <ul>Host: localhost:3000</ul>
+  <ul>Content-Type: application/json</ul>
+  <ul>User-Agent: Mozilla/5.0 Chrome/48.0.2564</ul>
+  <ul>Type: id = INTEGER PRIMARY KEY,
       brand = CHAR(100) NOT NULL,
       model = CHAR(100) NOT NULL,
       os = CHAR(10) NOT NULL,
       image = CHAR(254) NOT NULL,
-      screensize = INTEGER NOT NULL
+      screensize = INTEGER NOT NULL</ul>
+</p>
 
+<p>
+  <br>
+  A PUT request is used by Web APIs to update an existing resource.<br>
+  If not all the information is provided, either this error message<br>
+  ("Ops! You are missing some fields!"), or this error message
+  ("Please fill in all mandatory fields.") will be displayed.<br>
+  If all the information has been provided, but the update request does not work, <br>
+  a 400 status will be returned.<br>
+  If the update has been performed successfully, a 201 status will be returned,<br>
+  and the information will be updated.<br><br>
 
+  The MIME type looks as follows:
 
-A PUT request is used by Web APIs to update an existing resource.
-A 400 status will be returned if an error occurs.
-A 404 status will occur if the input is not found.
-A 204 status will be returned for a successful update.
-
-The only input a put request requires is the endpoint URI ('/put').
-
-The MIME type looks as follows:
-
-PUT api/put HTTP/1.1
-Host: localhost:3000
-Content-Type: application/json
-User-Agent: Mozilla/5.0 Chrome/48.0.2564
-Type: id = INTEGER PRIMARY KEY,
+  <ul>PUT http://localhost:3000/put HTTP/1.1</ul>
+  <ul>Host: localhost:3000</ul>
+  <ul>Content-Type: application/json</ul>
+  <ul>User-Agent: Mozilla/5.0 Chrome/48.0.2564</ul>
+  <ul>Type: id = INTEGER PRIMARY KEY,
       brand = CHAR(100) NOT NULL,
       model = CHAR(100) NOT NULL,
       os = CHAR(10) NOT NULL,
       image = CHAR(254) NOT NULL,
-      screensize = INTEGER NOT NULL
+      screensize = INTEGER NOT NULL</ul>
 
+</p>
 
-A DELETE request is used by Web APIs to delete an existing resource.
-A 400 status will be returned if an error occurs.
-A 404 status will occur if the input is not found.
-A 204 status will be returned for a successful delete.
+<p>
+  <br>
+  A DELETE request is used by Web APIs to delete an existing resource.<br>
+  If the id is not provided, the following error message will be displayed:<br>
+  "Ops! You are missing the id to delete!"<br>
+  A 400 status will be returned if an error occurs when deleting the information.<br>
+  The following error message 201 ("Item is deleted succesfully.")<br>
+  will be displayed when an item has successfully been deleted.<br>
 
-The MIME type looks as follows:
+  The MIME type looks as follows:
 
-DELETE api/delete HTTP/1.1
-Host: localhost:3000
-Content-Type: application/json
-User-Agent: Mozilla/5.0 Chrome/48.0.2564
-Type: id = INTEGER PRIMARY KEY,
-      brand = CHAR(100) NOT NULL,
-      model = CHAR(100) NOT NULL,
-      os = CHAR(10) NOT NULL,
-      image = CHAR(254) NOT NULL,
-      screensize = INTEGER NOT NULL
+  <ul>DELETE http://localhost:3000/delete HTTP/1.1</ul>
+  <ul>Host: localhost:3000</ul>
+  <ul>User-Agent: Mozilla/5.0 Chrome/48.0.2564</ul>
+</p>
+</body>
