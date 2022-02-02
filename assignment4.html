@@ -15,14 +15,26 @@
   <h1>Assignment 4 - Lab 120</h1>
   <h3>Intro section </h3>
   <p>The webpages created in assignment 1 and 2 do a relatively good job in terms of accessibility and usability. Both pages are accessible for different devices, and can be used accordingly.
-  However, there is also room for improvement. The webpage can be improved on certain things, such as but not limited to: text alternatives for non-text content could have been provided;
-  the webpage could have been made more adaptable; the webpage could potentially have been made more distinguishable; the webpage could have been made keyboard accessible;
-  and the navigability of the web page could have been; pagebreaks could have been used to increase usability of the webpage; and the dynamic table could have worked.
-  All in all, the webpage can be enhanced in multiple ways. Nevertheless, the accessibility and the usability of the webpage are still of a sufficient level.</p>
+  However, there is also room for improvement. The webpage can be improved on certain things, such as but not limited to: </p>
   <h3> Accessibility highlights </h3>
   <p> Accessibility highlights</p>
   <h3> Improvement plan section </h3>
-  <p> Accessibility highlights</p>
+  <p> In this the improvement plan, improvement will be prioritized as high(H), medium(M), and low(L).
+    <ol type= "1">
+      <li> H - Replacing the <strong>id</strong> that is used for more than one img element to class attribute. </li>
+      <li> H - Including missing <strong>alt</strong> attributes for img elements for  text alternatives for any non-text content.</li>
+      <li> H - Removing unvalid elements for HTML5, running HTML5 validator to double check.</li>
+      <li> H - Indentation adjustments on only HTML file. (CSS, and JavaScript file have proper indentation.)</li>
+      <li> H - Fix on cancelling the default event handling by using AJAX.</li>
+      <li> M - Adjustments on  resizing text.</li>
+      <li> M - Investigation to be done for using append function in HTML table rows. It could be checked if it is the problem with HTML version, a missing library or something else.</li>
+      <li> L - Adding keyboard operators.</li>
+      <li> L - Hiding buttons on print page and getting proper places for page-breaks.</li>
+      <li> GUIDLE 1.3 - ?</li>
+      <li> Guideline  2.4 - a lot of things are missing but what are they exactly?? </li>
+    </ol>
+
+  </p>
   <table border=1 frame=void rules=rows>
     <caption>
       <dl><strong>Appendix A</strong></dl>
@@ -40,22 +52,22 @@
     <tr>
       <td>Guideline 1.3 Adaptable: Create content that can be presented in different ways (for example simpler layout) without losing information or structure.</td>
       <td>Guideline 1.3 has partly been met by assignment 1. The responsive web design works partly, which causes the content to not be utterly adaptable to every user.
-        Furthermore, a correct reading sequence has not been determined.</td>
+          Furthermore, a correct reading sequence has not been determined.</td>
     </tr>
     <tr>
       <td>Guideline 1.4 Distinguishable: Make it easier for users to see and hear content including separating foreground from background.</td>
       <td>Guideline 1.4 has partly been met by the assignment.
-        The visuals are distinguishable from each other, making it easy for the users to separate foreground from background.
-        The contrast ratio mentioned in the guideline has also been met by the assignment. This ratio ensures that people with bad vision are also able to use the website.
-        The requirement of resize text has not been met. The responsive web design of the website does not completely work, meaning that the resizing of text could cause problems.
-        On top of that, the colours cannot be selected by the user. This caused the AAA-level 1.4.8 requirement to not be met.</td>
+          The visuals are distinguishable from each other, making it easy for the users to separate foreground from background.
+          The contrast ratio mentioned in the guideline has also been met by the assignment. This ratio ensures that people with bad vision are also able to use the website.
+          The requirement of resize text has not been met. The responsive web design of the website does not completely work, meaning that the resizing of text could cause problems.
+          On top of that, the colours cannot be selected by the user. This caused the AAA-level 1.4.8 requirement to not be met.</td>
     </tr>
     <tr>
       <td>Guideline 2.1 Keyboard Accessible: Make all functionality available from a keyboard.</td>
       <td>Guideline 2.1 has not been met by assignment 1. Users cannot navigate through the website with the keyboard.
-        Moreover, the user is not advised a method for moving away.
-        The JavaScript added in Assignment 2 has made the operability of the web page much better.
-        However, the added content did not add keyboard operators.</td>
+          Moreover, the user is not advised a method for moving away.
+          The JavaScript added in Assignment 2 has made the operability of the web page much better.
+          However, the added content did not add keyboard operators.</td>
     </tr>
     <tr>
       <td>Guideline 2.4 Navigable: Provide ways to help users navigate, find content, and determine where they are.</td>
@@ -67,8 +79,8 @@
         The AAA-level has not been met by the assignments, unfortunately.
         The 2.4.8 requirement, which states that "information about the user's location within a set of Web pages is available",
         has not been met, for instance.</td>
-  </tr>
-</table>
+</tr>
+  </table>
 
   <table border=1 frame=void rules=rows>
     <caption>
@@ -92,15 +104,16 @@
     </tr>
     <tr>
       <td>A1 CSS Responsive design: Text can be too small at times, background of header and background of lower table not properly responsive.</td>
-      <td>CSS could have been better coded in matter of text font-size and backround. Backround items defined in a class but it could be improve to have it responsive.</td>
+      <td>CSS could have been better coded in matter of text font-size and backround.Backround items defined in a class but it could be improve to have it responsive.</td>
     </tr>
     <tr>
       <td>A1 CSS Browser compatibility report: Missing.</td>
-      <td>?? </td>
+      <td>It was included on the top of the HTML file in description of head. So we could not understand what was missing for this part. As it is explained in the description,
+      it was tested for different browsers and seen to work fine with both.</td>
     </tr>
     <tr>
       <td>A2 Dynamic table: 10p for using jquery to send correct get request</td>
-      <td> Dynamic table was not visible on the web page since it could not be done with append functions appendTo, appendChild) in the end to make it appear on the table eventthough all the rows were created correctly up until it comes to insert them onto the table. It could improbve to check what was the proble with using append funcrtion in HTML table rows. It could be checedc if it is the problem with HTML version, a missing library ??</td>
+      <td> Dynamic table was not visible on the web page since it could not be done with append functions (appendTo, appendChild) in the end to make it appear on the table eventhough all the rows were created correctly up until it comes to insert them onto the table. </td>
     </tr>
     <tr>
       <td>A2 Form submit as SPA (single page application): 5p for correctly getting form values from the DOM tree 10p for correctly posting them to the server 5p for cancelling the default event handling </td>
