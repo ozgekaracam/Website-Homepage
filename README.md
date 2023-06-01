@@ -1,4 +1,5 @@
-# webtech-lab120
+# Web Technology
+Website application of a fictitious mobile phone web shop
 
 Ozge Karacam
 Willem van Dommelen
